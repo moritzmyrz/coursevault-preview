@@ -31,4 +31,13 @@ describe("readFile", () => {
       /escapes the base directory/,
     );
   });
+
+  it("throws on prefix-confusion traversal (sibling dir sharing name prefix)", async () => {
+    // e.g. baseDir = "/a/fixtures", attacker supplies "../fixtures2/secret"
+    // resolves to "/a/fixtures2/secret" which passes a naive startsWith check
+    const sibling = FIXTURES + "2";
+    await expect(readFile(FIXTURES, `../${sibling.split("/").at(-1)}/anything`)).rejects.toThrow(
+      /escapes the base directory/,
+    );
+  });
 });

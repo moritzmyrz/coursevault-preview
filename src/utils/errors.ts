@@ -1,5 +1,5 @@
 import { access } from "node:fs/promises";
-import { normalize, join } from "node:path";
+import { normalize, join, sep } from "node:path";
 
 /**
  * Resolves a relative path against baseDir and verifies it does not escape
@@ -9,7 +9,10 @@ export function resolveSafe(baseDir: string, relativePath: string): string {
   const base = normalize(baseDir);
   const full = normalize(join(base, relativePath));
 
-  if (!full.startsWith(base)) {
+  // startsWith(base) alone is insufficient — it matches sibling directories that
+  // share a name prefix (e.g. base="/a/b", full="/a/b2/evil" passes the string
+  // check but escapes the tree). Require a separator after the base prefix.
+  if (full !== base && !full.startsWith(base + sep)) {
     throw new Error(
       `Path "${relativePath}" escapes the base directory — possible path traversal.`,
     );

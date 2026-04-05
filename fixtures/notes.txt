@@ -1,0 +1,13 @@
+Lecture 1 – Introduction to Distributed Systems
+
+What is a distributed system?
+A distributed system is a collection of independent computers that appears to its
+users as a single coherent system.
+
+Key challenges:
+- Partial failures
+- Network latency and unreliability
+- Lack of a global clock
+
+Reading for next week: Lamport, "Time, Clocks, and the Ordering of Events in a
+Distributed System" (1978).

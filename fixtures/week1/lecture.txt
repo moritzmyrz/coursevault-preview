@@ -1,0 +1,9 @@
+Week 1 Lecture Notes
+
+Topics covered:
+- Definition of a distributed system
+- Examples: DNS, the web, cloud storage
+- The "two generals" problem as a motivating example
+- Why distribution is hard: failures, concurrency, partial state
+
+See syllabus.md for the full reading list.

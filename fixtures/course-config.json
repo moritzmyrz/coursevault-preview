@@ -1,0 +1,19 @@
+{
+  "courseId": "CS401",
+  "title": "Advanced Distributed Systems",
+  "semester": "Spring 2026",
+  "instructor": {
+    "name": "Dr. A. Turing",
+    "email": "a.turing@university.edu"
+  },
+  "modules": [
+    { "week": 1, "topic": "Introduction", "hasSlides": true },
+    { "week": 2, "topic": "Time and Ordering", "hasSlides": true },
+    { "week": 3, "topic": "Consensus", "hasSlides": false }
+  ],
+  "gradingScheme": {
+    "problemSets": 0.4,
+    "midterm": 0.25,
+    "finalProject": 0.35
+  }
+}
